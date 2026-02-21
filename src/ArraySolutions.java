@@ -147,10 +147,28 @@ public class ArraySolutions {
                 minValue = price;
             else 
                 if (price - minValue > maxProfit)
-                maxProfit = price - minValue;
+                    maxProfit = price - minValue;
         }
         return maxProfit;
     }
+
+    //Product of Array Except Self,  O(n) time, O(n) space
+    public int[] productExceptSelf(int[] nums) {
+        int[] prefixProduct = nums.clone();
+        int[] suffixProduct = nums.clone();
+        int[] result = new int[nums.length];
+        for (int i=1; i<nums.length-1; i++) {
+            prefixProduct[i] = prefixProduct[i-1] * nums[i];
+            suffixProduct[nums.length-i-1] = suffixProduct[nums.length-i] * nums[nums.length-i-1];
+        }
+        result[0] = suffixProduct[1];
+        result[nums.length-1] = prefixProduct[nums.length-2];
+        for (int i=1; i<nums.length-1; i++) {
+            result[i] = prefixProduct[i-1] * suffixProduct[i+1];
+        }
+        return result;
+    }
+
     
 
 }
