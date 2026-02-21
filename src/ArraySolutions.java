@@ -169,6 +169,19 @@ public class ArraySolutions {
         return result;
     }
 
-    
-
+    //Product of Array Except Self,  O(n) time, O(1) space
+    public int[] productExceptSelf1(int[] nums) {
+        int[] result = nums.clone();
+        for (int i=1; i<nums.length-1; i++) {
+            result[i] = result[i-1] * nums[i];
+        }
+        result[nums.length-1] = result[nums.length-2];
+        int suffixProduct = nums[nums.length-1];
+        for (int i = nums.length-2; i>0; i--) {
+            result[i] = suffixProduct * result[i-1];
+            suffixProduct *= nums[i];
+        }
+        result[0] = suffixProduct;
+        return result;
+    }
 }
