@@ -23,4 +23,11 @@ public class TreeSolutions {
             return null;
         return new TreeNode(root.val, invertTree(root.right), invertTree(root.left));
     }
+
+    //Symmetric Tree
+    public boolean isSymmetric(TreeNode root) {
+        if (root==null)
+            return true;
+        return isSameTree(invertTree(root.right), root.left);
+    }
 }
