@@ -16,4 +16,11 @@ public class TreeSolutions {
             return false;
         return p.val == q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
     }
+
+    //Invert Binary Tree
+    public TreeNode invertTree(TreeNode root) {
+        if (root==null)
+            return null;
+        return new TreeNode(root.val, invertTree(root.right), invertTree(root.left));
+    }
 }
