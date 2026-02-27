@@ -199,4 +199,16 @@ public class ArraySolutions {
         result[0] = suffixProduct;
         return result;
     }
+
+    //Find the Number of Good Pairs I
+    public int numberOfPairs(int[] nums1, int[] nums2, int k) {
+        int result = 0;
+        for (int value : nums1) {
+            for (int i : nums2) {
+                if (value % (i * k) == 0)
+                    result++;
+            }
+        }
+        return result;
+    }
 }
