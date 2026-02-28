@@ -136,4 +136,31 @@ public int fib(int n) {
     return res;
     }
 
+    //Sum of K-Digit Numbers in a Range
+    static final long MOD = 1_000_000_007L;
+    public long sumOfNumbers(int l, int r, int k) {
+        long count = r - l + 1;
+        long sumOfDigits = (count % MOD) * ((l + r) % MOD) % MOD * modInverse(2, MOD) % MOD;
+        long waysForOtherPositions = modPow(count % MOD, k - 1, MOD);
+        long sumOfPlaceValues = (modPow(10L, k, MOD) - 1 + MOD) % MOD * modInverse(9, MOD) % MOD;
+        return sumOfDigits * waysForOtherPositions % MOD * sumOfPlaceValues % MOD;
+    }
+    private long modPow(long base, long exp, long mod) {
+        long result = 1;
+        base %= mod;
+
+        while (exp > 0) {
+            if ((exp & 1) == 1) {
+                result = result * base % mod;
+            }
+            base = base * base % mod;
+            exp >>= 1;
+        }
+
+        return result;
+    }
+    private long modInverse(long value, long mod) {
+        return modPow(value, mod - 2, mod);
+    }
+
 }
