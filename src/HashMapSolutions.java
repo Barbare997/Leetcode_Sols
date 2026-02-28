@@ -39,9 +39,4 @@ public class HashMapSolutions {
             a=nums[0];
         return new int[]{a,b};
     }
-
-    public static void main(String[] args) {
-        int[] nums = {1, 1, 2, 2, 3, 4};
-        System.out.println(Arrays.toString(minDistinctFreqPair(nums)));
-    }
 }
