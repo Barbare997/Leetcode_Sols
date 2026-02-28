@@ -1,4 +1,6 @@
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class HashMapSolutions {
     //Valid Anagram, solution with hashmap
@@ -15,5 +17,31 @@ public class HashMapSolutions {
             map.put(c, map.get(c)-1);
         }
         return true;
+    }
+
+    //Smallest Pair With Different Frequencies
+    public static int[] minDistinctFreqPair(int[] nums) {
+        Arrays.sort(nums);
+        int a=-1; int b=-1;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+        for (int i=1; i<nums.length; i++) {
+            if (nums[i]!=nums[i-1]) {
+                if (!Objects.equals(map.get(nums[i]), map.get(nums[i - 1]))) {
+                    b = nums[i];
+                    break;
+                }
+            }
+        }
+        if (b!=-1)
+            a=nums[0];
+        return new int[]{a,b};
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 1, 2, 2, 3, 4};
+        System.out.println(Arrays.toString(minDistinctFreqPair(nums)));
     }
 }
