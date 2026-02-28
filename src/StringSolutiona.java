@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Stack;
 
 public class StringSolutiona {
     //Jewels and Stones
@@ -177,8 +178,19 @@ public class StringSolutiona {
         return -1;
     }
 
-
-
-
+    //Merge Close Characters
+    public String mergeCharacters(String s, int k) {
+        StringBuilder stringBuilder = new StringBuilder();
+        Stack<int[]> stack = new Stack<>();
+        for (char c : s.toCharArray()) {
+            int a = stringBuilder.length();
+            if (!stack.isEmpty() && stack.peek()[0] == c && a - stack.peek()[1] <= k) {
+            } else {
+                stack.push(new int[]{c, a});
+                stringBuilder.append(c);
+            }
+        }
+        return stringBuilder.toString();
+    }
 
 }
