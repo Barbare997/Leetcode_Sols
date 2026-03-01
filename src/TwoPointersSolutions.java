@@ -46,7 +46,7 @@ public class TwoPointersSolutions {
         }
     }
 
-    //Container with most water
+    //Container With Most Water
     public int maxArea(int[] height) {
         int left = 0;
         int right = height.length-1;
@@ -59,5 +59,17 @@ public class TwoPointersSolutions {
             maxVALUE=Math.max(maxVALUE, (right-left)*Math.min(height[left], height[right]));
         }
         return maxVALUE;
+    }
+
+    //Remove Element
+    public int removeElement(int[] nums, int val) {
+        int result = 0;
+        for (int i=0; i<nums.length; i++){
+            if (nums[i]!=val) {
+                nums[result] = nums[i];
+                result++;
+            }
+        }
+        return result;
     }
 }
