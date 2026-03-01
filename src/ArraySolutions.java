@@ -210,7 +210,7 @@ public class ArraySolutions {
         return result;
     }
 
-    //Minimum Operations to Make Array Parity Alternating
+    //Remove Element
     public int removeElement(int[] nums, int val) {
         int result = 0;
         for (int i=0; i<nums.length; i++){
