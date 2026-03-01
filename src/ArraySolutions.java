@@ -1,6 +1,4 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class ArraySolutions {
 
@@ -207,6 +205,18 @@ public class ArraySolutions {
             for (int i : nums2) {
                 if (value % (i * k) == 0)
                     result++;
+            }
+        }
+        return result;
+    }
+
+    //Minimum Operations to Make Array Parity Alternating
+    public int removeElement(int[] nums, int val) {
+        int result = 0;
+        for (int i=0; i<nums.length; i++){
+            if (nums[i]!=val) {
+                nums[result] = nums[i];
+                result++;
             }
         }
         return result;
