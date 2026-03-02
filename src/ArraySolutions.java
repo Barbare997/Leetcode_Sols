@@ -233,4 +233,20 @@ public class ArraySolutions {
         }
         System.arraycopy(result, 0, nums, 0, nums.length);
     }
+
+
+    //Rotate Array, O(1) space version, reversing
+    public void rotate1(int[] nums, int k) {
+        k %= nums.length;
+        reverse(nums, 0, nums.length-1);
+        reverse(nums, 0, k-1);
+        reverse(nums, k, nums.length-1);
+    }
+    public void reverse (int [] arr, int l, int r) {
+        while (l<r) {
+            int temp = arr[l];
+            arr[l++] = arr[r];
+            arr[r--] = temp;
+        }
+    }
 }
