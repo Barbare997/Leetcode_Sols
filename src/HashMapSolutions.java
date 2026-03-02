@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class HashMapSolutions {
@@ -38,5 +39,17 @@ public class HashMapSolutions {
         if (b!=-1)
             a=nums[0];
         return new int[]{a,b};
+    }
+
+    //Majority Element
+    public int majorityElement(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int n = nums.length;
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+            if (map.get(num) > n / 2)
+                return num;
+        }
+        return 0;
     }
 }
