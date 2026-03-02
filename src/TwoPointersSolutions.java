@@ -1,6 +1,9 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class TwoPointersSolutions {
-    //Remove Duplicates from Sorted Array
-    public int removeDuplicates(int[] nums) {
+    //Remove Duplicates from Sorted Array 1
+    public int removeDuplicates1(int[] nums) {
         int k = 0;
         for (int i=1; i<nums.length; i++) {
             if (nums[i]!=nums[i-1]) {
@@ -9,6 +12,21 @@ public class TwoPointersSolutions {
             }
         }
         return k+1;
+    }
+
+    //Remove Duplicates from Sorted Array 2
+    public int removeDuplicates2(int[] nums) {
+        int n = nums.length;
+        if (n<=2)
+            return n;
+        int result = 2;
+        for (int i=2; i<nums.length; i++) {
+            if (nums[i]!=nums[result-2]) {
+                nums[result] = nums[i];
+                result++;
+            }
+        }
+        return result;
     }
 
     //Move Zeroes
@@ -72,4 +90,6 @@ public class TwoPointersSolutions {
         }
         return result;
     }
+
+
 }
