@@ -285,4 +285,22 @@ public class ArraySolutions {
         }
         return -1;
     }
+
+    //Jump Game
+    public boolean canJump(int[] nums) {
+        boolean[] canJump = new boolean[nums.length];
+        canJump[0] = true;
+        int i = 0;
+        while (i<canJump.length) {   //0 1 2 3 4
+            if (canJump[i]) {
+                int j = i + 1;
+                while (j <= nums[i] + i && j < nums.length) {
+                    canJump[j] = true;
+                    j++;
+                }
+            }
+            i++;
+        }
+        return canJump[nums.length-1];
+    }
 }
