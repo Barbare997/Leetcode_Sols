@@ -165,6 +165,22 @@ public class ArraySolutions {
         return maxProfit;
     }
 
+    //Best Time to Buy and Sell Stock II
+    public int maxProfit1(int[] prices) {
+        int maxProfit =0;
+        int minValue = prices[0];
+        for (int i=1; i<prices.length; i++) {
+            if (prices[i]<prices[i-1]) {
+                maxProfit += (prices[i - 1]-minValue);
+                minValue = prices[i];
+            }
+        }
+        if (prices.length>1 && prices[prices.length-1]>=prices[prices.length-2]) {
+            maxProfit+=(prices[prices.length-1]-minValue);
+        }
+        return maxProfit;
+    }
+
     //Product of Array Except Self,  O(n) time, O(n) space
     public int[] productExceptSelf(int[] nums) {
         int[] prefixProduct = nums.clone();
