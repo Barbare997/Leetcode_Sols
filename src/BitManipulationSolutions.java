@@ -1,4 +1,5 @@
 public class BitManipulationSolutions {
+    //Hamming Distance
     public int hammingDistance(int x, int y) {
         int xor = x ^ y;
         int count = 0;
