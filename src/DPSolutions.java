@@ -58,4 +58,19 @@ public class DPSolutions {
         return arr[nums.length-1];
     }
 
+    //Jump Game II, space O(1), time O(n)
+    public int jump1(int[] nums) {
+        int jumps = 0;
+        int maxReach = 0;
+        int currRangeEnd = 0;
+        for (int i=0; i<nums.length; i++) {
+            maxReach = Math.max(maxReach, i+nums[i]);
+            if (currRangeEnd==i) {
+                jumps++;
+                currRangeEnd = maxReach;
+            }
+        }
+        return jumps;
+    }
+
 }
