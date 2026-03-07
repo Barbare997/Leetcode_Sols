@@ -31,7 +31,7 @@ public class DPSolutions {
         return result;
     }
 
-    //Jump Game, better DP solution (O(n) time, O(1) space)
+    //Jump Game, better DP, Greedy solution (O(n) time, O(1) space)
     public boolean canJump(int[] nums) {
         int maxReach = 0;
         for (int i=0; i<nums.length; i++) {
@@ -40,6 +40,22 @@ public class DPSolutions {
             maxReach=Math.max(maxReach, i+nums[i]);
         }
         return true;
+    }
+
+    //Jump Game II, space O(n), time O(n^2)
+    public int jump(int[] nums) {
+        int[] arr = new int[nums.length];
+        arr[0] = 0;
+        for (int i=1; i<nums.length; i++) {
+            arr[i]=Integer.MAX_VALUE;
+        }
+        for (int i=0; i<arr.length; i++) {
+            for (int j=i+1; j<=i+nums[i]; j++) {
+                if (j<arr.length)
+                    arr[j] = Math.min(arr[j], 1+arr[i]);
+            }
+        }
+        return arr[nums.length-1];
     }
 
 }
