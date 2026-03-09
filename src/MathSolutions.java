@@ -170,4 +170,11 @@ public int fib(int n) {
         return new double[] {k, f};
     }
 
+    //Smallest Even Multiple
+    public int smallestEvenMultiple(int n) {
+        if (n%2==1)
+            return n*2;
+        else return n;
+    }
+
 }
