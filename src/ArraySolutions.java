@@ -303,4 +303,15 @@ public class ArraySolutions {
         }
         return canJump[nums.length-1];
     }
+
+    //N-Repeated Element in Size 2N Array
+    public int repeatedNTimes(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            if (set.contains(num))
+                return num;
+            set.add(num);
+        }
+        return 0;
+    }
 }
