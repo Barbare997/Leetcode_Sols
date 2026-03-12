@@ -187,4 +187,10 @@ public int fib(int n) {
         return count;
     }
 
+    //Determine Color of a Chessboard Square
+    public boolean squareIsWhite(String coordinates) {
+        return (coordinates.charAt(0)%2==1 && coordinates.charAt(1)%2==0)
+                || (coordinates.charAt(0)%2==0 && coordinates.charAt(1)%2==1);
+    }
+
 }
