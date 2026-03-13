@@ -193,4 +193,21 @@ public int fib(int n) {
                 || (coordinates.charAt(0)%2==0 && coordinates.charAt(1)%2==1);
     }
 
+
+    //Calculate Money in Leetcode Bank
+    public int totalMoney(int n) {
+        int cnt = 0;
+        int currMonday=1;
+        int sum = 0;
+        for (int i=0; i<n; i++) {
+            sum+=currMonday+(i%7);
+            cnt++;
+            if (cnt==7) {
+                cnt = 0;
+                currMonday++;
+            }
+        }
+        return sum;
+    }
+
 }
