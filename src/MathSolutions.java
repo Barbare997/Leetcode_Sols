@@ -210,4 +210,9 @@ public int fib(int n) {
         return sum;
     }
 
+    //A Number After a Double Reversal
+    public boolean isSameAfterReversals(int num) {
+        return num%10!=0 || num/10==0;
+    }
+
 }
