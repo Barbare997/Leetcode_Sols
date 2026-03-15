@@ -215,4 +215,19 @@ public int fib(int n) {
         return num%10!=0 || num/10==0;
     }
 
+
+    //Mirror Distance of an Integer
+    public int mirrorDistance(int n) {
+        return Math.abs(n-reverse(n));
+    }
+    public int reverse (int n) {
+        int result = 0;
+        while (n!=0) {
+            int digit =n%10;
+            result=result*10+digit;
+            n/=10;
+        }
+        return result;
+    }
+
 }
