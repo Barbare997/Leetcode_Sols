@@ -270,4 +270,21 @@ public int fib(int n) {
         return result;
     }
 
+    //Smallest Index With Digit Sum Equal to Index
+    public int smallestIndex(int[] nums) {
+        int result = -1;
+        for (int i=0; i<nums.length; i++) {
+            if (i==digitSum(nums[i]))
+                return i;
+        }
+        return result;
+    }
+    public int digitSum (int num) {
+        int result = 0;
+        while (num!=0) {
+            result+=num%10;
+            num/=10;
+        }
+        return result;
+    }
 }
