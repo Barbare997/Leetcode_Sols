@@ -287,4 +287,26 @@ public int fib(int n) {
         }
         return result;
     }
+
+
+    //Cells with Odd Values in a Matrix
+    public int oddCells(int m, int n, int[][] indices) {
+        int[][] matrix = new int[m][n];
+        for (int[] index : indices) {
+            for (int i = 0; i < n; i++) {
+                matrix[index[0]][i]++;
+            }
+            for (int i = 0; i < m; i++) {
+                matrix[i][index[1]]++;
+            }
+        }
+        int result = 0;
+        for (int[] ints : matrix) {
+            for (int anInt : ints) {
+                if (anInt % 2 == 1)
+                    result++;
+            }
+        }
+        return result;
+    }
 }
