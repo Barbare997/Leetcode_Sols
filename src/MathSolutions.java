@@ -311,18 +311,23 @@ public int fib(int n) {
     }
 
 
-    //Cells with Odd Values in a Matrix
+    // Number of Matches in a Tournament
     public int numberOfMatches(int n) {
         int result = 0;
-        while (n!=1) {
-            if (n%2==0) {
-                result+=n/2;
-                n/=2;
+        while (n != 1) {
+            if (n % 2 == 0) {
+                result += n / 2;
+                n /= 2;
             } else {
-                result+=(n-1)/2;
-                n=n/2+1;
+                result += (n - 1) / 2;
+                n = n / 2 + 1;
             }
         }
         return result;
+    }
+
+    // Add Two Integers
+    public int sum(int num1, int num2) {
+        return num1 + num2;
     }
 }
