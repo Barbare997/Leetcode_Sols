@@ -11,4 +11,16 @@ public class Greedy {
             result+=Math.abs(seats[i]-students[i]);
         return result;
     }
+
+
+    //Minimum Operations to Make the Array Increasing
+    public int minOperations(int[] nums) {
+        int result =0;
+        for (int i=1; i<nums.length; i++) {
+            int x =Math.max(0, nums[i-1]-nums[i]+1);
+            nums[i]+=x;
+            result+=x;
+        }
+        return result;
+    }
 }
