@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class MathSolutions {
     //Number of Steps to Reduce a Number to Zero
@@ -329,5 +327,26 @@ public int fib(int n) {
     // Add Two Integers
     public int sum(int num1, int num2) {
         return num1 + num2;
+    }
+
+
+    //The Two Sneaky Numbers of Digitville
+    public int[] getSneakyNumbers(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        int cnt = 0;
+        int[] result = new int[2];
+        for (int num: nums) {
+            if (set.contains(num)) {
+                result[cnt] = num;
+                cnt++;
+            }
+
+            if (cnt==2)
+                return result;
+
+            set.add(num);
+
+        }
+        return new int[]{0};
     }
 }
