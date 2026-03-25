@@ -349,4 +349,27 @@ public int fib(int n) {
         }
         return new int[]{0};
     }
+
+    //Find N Unique Integers Sum up to Zero
+    public int[] sumZero(int n) {
+        if (n==1) return new int[]{0};
+        int[] result = new int[n];
+        int l;
+        if (n%2==1) {
+            l = n-1;
+            result[n-1] = 0;
+        } else l=n;
+
+        int curr = 1;
+        result[0] = 1;
+        for (int i=1; i<l; i++) {
+            if (result[i-1]>0)
+                result[i] = -curr;
+            else {
+                curr++;
+                result[i] = curr;
+            }
+        }
+        return result;
+    }
 }
