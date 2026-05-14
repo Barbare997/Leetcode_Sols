@@ -314,4 +314,15 @@ public class ArraySolutions {
         }
         return 0;
     }
+
+    //Check if Array is Good
+    public boolean isGood(int[] nums) {
+        Arrays.sort(nums);
+        for (int i=1; i<=nums.length-2; i++) {
+            if (nums[i-1]!=i)
+                return false;
+        }
+        return nums[nums.length-1]==nums[nums.length-2];
+
+    }
 }
