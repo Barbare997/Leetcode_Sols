@@ -403,4 +403,24 @@ public int fib(int n) {
 
         return result;
     }
+
+    //Plus One
+    public int[] plusOne(int[] digits) {
+        int cnt=0;
+        int [] result = new int[digits.length+1];
+        result[0] = 1;
+        for (int i=digits.length-1; i>=0; i--) {
+            if (digits[i]==9) {
+                cnt++;
+                digits[i]=0;
+            } else {
+                digits[i]++;
+                break;
+            }
+        }
+        if (cnt==digits.length)
+            return result;
+        else
+            return digits;
+    }
 }
