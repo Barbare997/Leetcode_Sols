@@ -386,4 +386,21 @@ public int fib(int n) {
         }
         return sum;
     }
+
+
+    //Water Bottles
+    public int numWaterBottles(int numBottles, int numExchange) {
+        int result = 0;
+        int left = 0;
+
+        while (numBottles != 0) {
+            result += numBottles;
+
+            int totalEmpty = numBottles + left;  // save BEFORE updating
+            numBottles = totalEmpty / numExchange;
+            left = totalEmpty % numExchange;
+        }
+
+        return result;
+    }
 }
