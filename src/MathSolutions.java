@@ -423,4 +423,19 @@ public int fib(int n) {
         else
             return digits;
     }
+
+
+    //Palindrome Number
+    public static boolean isPalindrome(int x) {
+        String str = Integer.toString(x);
+        int l = 0;
+        int r = str.length()-1;
+        while (l<r) {
+            if (str.charAt(l)!=str.charAt(r))
+                return false;
+            l++;
+            r--;
+        }
+        return true;
+    }
 }
