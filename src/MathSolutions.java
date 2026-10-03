@@ -438,4 +438,20 @@ public int fib(int n) {
         }
         return true;
     }
+
+    public static boolean isPalindrome1(int x) {
+        if (x<0)
+            return false;
+        if (x==0)
+            return true;
+        if (x%10==0)
+            return false;
+        int  original = x;
+        int reversed = 0;
+        while (original>reversed) {
+            reversed = reversed*10 + original%10;
+            original/=10;
+        }
+        return reversed == original || reversed/10==original;
+    }
 }
