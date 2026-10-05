@@ -30,4 +30,26 @@ public class BitManipulationSolutions {
 
     }
 
+    //Add Binary another solution (directly placing characters in a fixed size string)
+    public String addBinary1(String a, String b) {
+        int carry = 0;
+        int i = a.length()-1, j = b.length()-1, k = Math.max(i , j) + 2;
+
+        char  [] s = new char [k];
+
+        int p = k-1;
+
+        while (i>=0 || j>=0 || carry >0) {
+            int sum = carry;
+            if (i>=0) sum += a.charAt(i--) - '0';
+            if (j>=0) sum+= b.charAt(j--) - '0';
+
+            s[p--] = (char) ((sum%2) + '0');
+            carry=sum/2;
+
+        }
+        return new String(s, p+1, k-p-1);
+
+    }
+
 }
