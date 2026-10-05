@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+
 public class BitManipulationSolutions {
     //Hamming Distance
     public int hammingDistance(int x, int y) {
@@ -52,4 +54,23 @@ public class BitManipulationSolutions {
 
     }
 
+    //Reverse bits
+    public int reverseBits(int n) {
+        StringBuilder builder = (new StringBuilder(String.format("%32s", Integer.toBinaryString(n)).replace(' ', '0')).reverse());
+        return Integer.parseInt(builder.toString(), 2);
+    }
+
+//    n <<= 1;   // left shift
+//    n >>= 1;   // signed right shift
+//    n >>>= 1;  // unsigned right shift
+
+    public int reverseBits1(int n) {
+        int ans = 0;
+        for (int i=0; i<32; i++) {
+            ans = (ans<<1) | (n&1);
+            n >>>= 1;
+        }
+
+        return ans;
+    }
 }
