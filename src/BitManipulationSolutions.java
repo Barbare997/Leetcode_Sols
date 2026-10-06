@@ -73,4 +73,14 @@ public class BitManipulationSolutions {
 
         return ans;
     }
+
+    //Number of 1 Bits
+    public int hammingWeight(int n) {
+        int result = 0;
+        while (n!=0) {
+            result+=n%2;
+            n/=2;
+        }
+        return result;
+    }
 }
