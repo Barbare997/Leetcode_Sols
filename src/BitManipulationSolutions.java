@@ -91,4 +91,20 @@ public class BitManipulationSolutions {
             result^=n;
         return result;
     }
+
+    //Single Number II
+    public int singleNumber2(int[] nums) {
+        int result = 0;
+
+        for (int i=0; i<32; i++){
+            int cnt = 0;
+
+            for (int num: nums) cnt+=(num>>i) & 1;
+
+            if (cnt%3!=0)
+                result|= (1<<i);
+
+        }
+        return result;
+    }
 }
